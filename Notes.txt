@@ -1,0 +1,5 @@
+Day 1 
+first of all,folder euta banaune
+tespaxi tyo folder vs code ma kholne ani npm init hani
+semantic versioning (semVer)
+major.minor.path(4.18.2)
