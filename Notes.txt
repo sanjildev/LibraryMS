@@ -1,5 +1,14 @@
-Day 1 
+
 first of all,folder euta banaune
 tespaxi tyo folder vs code ma kholne ani npm init hani
 semantic versioning (semVer)
 major.minor.path(4.18.2)
+
+json use
+ to store and transfer data
+ 
+ schema --> schema vaneko chai table ma k k column halne tesari bujna sakinx
+ for post request
+ body>raw>json
+ hamile postman bata req pathuada node js le bujna sakdiana so tei vayer node js lai kura bujauna ko lagi hamile
+ app.use(express.json()) vanni euta code lekhnu parx
