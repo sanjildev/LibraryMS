@@ -37,26 +37,19 @@ app.get('/book',async(req,res)=>{
 
 //euta book ko matra data dincha (fetch single book)
 app.get('/book/:id',async (req,res)=>{
-    
-try {
     const id=req.params.id
    const book= await Book.findById(id) //return object garx
-    if(!book){
-        res.status(404).json({
-            message:"nothing found"
-        })
-    }
-        else{
-            res.json({
-                message:"single book triggered",
-                data:book
-            })
-        }
-} catch (error) {
-    res.status(500).json({
-        "message":"something went wrong"
+   if(!book){
+    res.status(404).json({
+        message:"nothing found"
     })
 }
+    else{
+        res.json({
+            message:"single book triggered",
+            data:book
+        })
+    }
   
     
 })
