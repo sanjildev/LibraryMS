@@ -16,6 +16,8 @@ app.get('/home',(req,res)=>{
        "message":"Success"
     })
 }) // this is json format
+
+
 //create books
 app.post('/book',async(req,res)=>{
  const {bookName,bookPrice,isbnNumber,authorName,publishedAt,publication}=req.body
@@ -26,6 +28,9 @@ app.post('/book',async(req,res)=>{
         message:"book created  successfully"
     })
 })
+
+
+
 //sabai book ko data dincha (fetch all books)
 app.get('/book',async(req,res)=>{
    const books=await Book.find() //return array garx
@@ -34,6 +39,8 @@ app.get('/book',async(req,res)=>{
     data:books
 })
 })
+
+
 
 //euta book ko matra data dincha (fetch single book)
 app.get('/book/:id',async (req,res)=>{
@@ -50,9 +57,38 @@ app.get('/book/:id',async (req,res)=>{
             data:book
         })
     }
-  
     
 })
+
+
+
+//delete single book
+app.delete('/book/:id',async(req,res)=>{
+    const id=req.params.id
+  await Book.findByIdAndDelete(id)
+    res.status(200).json({
+        message:"book deleted successfully!!"
+    })
+ })
+
+ 
+
+
+ //update book
+ app.patch('/book/:id',async(req,res)=>{
+const id=req.params.id
+const {bookName,bookPrice,isbnNumber,authorName,publishedAt,publication}=req.body
+await Book.findByIdAndUpdate(id,{
+    bookName,bookPrice,isbnNumber,authorName,publishedAt,publication
+})
+
+
+
+
+res.json({
+message:"book updated successfully!!",
+})
+ })
 app.listen(5000,()=>{
     console.log('the server is running in port 5000');
     

@@ -12,3 +12,9 @@ json use
  body>raw>json
  hamile postman bata req pathuada node js le bujna sakdiana so tei vayer node js lai kura bujauna ko lagi hamile
  app.use(express.json()) vanni euta code lekhnu parx
+ CRUD
+ create-> book.create()
+ Read-> Single-> findById()
+      -> All->find()   
+Update-findByIdAndUpdate()          
+Delete-findByIdAndDelete()
