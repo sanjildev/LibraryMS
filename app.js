@@ -1,6 +1,11 @@
 const express=require('express')
 const connectToDatabase = require('./database')
 const Book = require('./model/bookModel')
+
+//multerconfig imports
+
+const {multer,storage}=require('./middleware/multerConfig')
+const upload=multer({storage:storage})
 const app=express()
 app.use(express.json())  //hamile postman bata req pathuada node js le bujna sakdiana so tei vayer node js lai kura bujauna ko lagi hamile app.use(express.json()) vanni euta code lekhnu parx ani yo bahira bata frontend aauda use garinx like client side bata
 
@@ -19,10 +24,11 @@ app.get('/home',(req,res)=>{
 
 
 //create books
-app.post('/book',async(req,res)=>{
+app.post('/book',upload.single('image'),async(req,res)=>{
  const {bookName,bookPrice,isbnNumber,authorName,publishedAt,publication}=req.body
    await Book.create({
-        bookName,bookPrice,isbnNumber,authorName,publishedAt,publication
+        bookName,bookPrice,isbnNumber,authorName,publishedAt,publication,
+        imageUrl:req.file.filename
     })
     res.status(201).json({ //201--> created vaner janaux
         message:"book created  successfully"
@@ -89,6 +95,8 @@ res.json({
 message:"book updated successfully!!",
 })
  })
+
+ app.use(express.static('./storage'))
 app.listen(5000,()=>{
     console.log('the server is running in port 5000');
     

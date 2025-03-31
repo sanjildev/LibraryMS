@@ -18,6 +18,9 @@ const bookSchema=new Schema({ //yesma chai schema chai mongoose ko euta class ho
     },
     publication:{
         type:String
+    },
+    imageUrl:{
+        type:String
     }
 })
 const Book=mongoose.model("Book",bookSchema) //mongoose.model le chai table ko naam define garx
