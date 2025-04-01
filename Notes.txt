@@ -14,11 +14,11 @@ json use
  app.use(express.json()) vanni euta code lekhnu parx
  CRUD
  create-> book.create()
- Read-> Single-> findById()
-      -> All->find()   
-Update-findByIdAndUpdate()          
-Delete-findByIdAndDelete()
+ Read-> Single-> book.findById()
+      -> All->book.find()   
+Update-book.findByIdAndUpdate()          
+Delete-book.findByIdAndDelete()
 multer--> multer is middleware
 
 text ko form ma gayo vane tesko content-type application/json ma janx
-file (o=photo,mp4,video,pdf) ko form ma gayo vane chai tesko content-type multipart/form-data ma janx ||
+file (photo,mp4,video,pdf) ko form ma gayo vane chai tesko content-type multipart/form-data ma janx ||
