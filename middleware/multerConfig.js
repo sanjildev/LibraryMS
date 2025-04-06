@@ -1,7 +1,7 @@
 const multer=require('multer')
 const storage=multer.diskStorage({
     destination:function(req,file,cb){
-        const allowedFileTypes=['image/png','image/jpeg','image/jpg'] //yo line of code le chai k vanx vanda kheri kasto format ko file haru chai accept hunx vancha
+        const allowedFileTypes=['image/png','image/jpeg','image/jpg','image/webp'] //yo line of code le chai k vanx vanda kheri kasto format ko file haru chai accept hunx vancha
 console.log(req.file);
 
         if(!allowedFileTypes.includes(file.mimetype)){

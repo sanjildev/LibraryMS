@@ -13,6 +13,9 @@ const bookSchema=new Schema({ //yesma chai schema chai mongoose ko euta class ho
    authorName:{
         type:String
     },
+    description:{
+type:String
+    },
     publishedAt:{
         type:String
     },
